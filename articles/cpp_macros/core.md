@@ -2,6 +2,37 @@
 
 ## `common_runtime/device_factory.h`
 
+### `REGISTER_LOCAL_DEVICE_FACTORY`
+
+#### Description
+
+#### Definition
+
+```cpp
+#define REGISTER_LOCAL_DEVICE_FACTORY(device_type, device_factory, ...) \
+  INTERNAL_REGISTER_LOCAL_DEVICE_FACTORY(device_type, device_factory,   \
+                                         __COUNTER__, ##__VA_ARGS__)
+
+#define INTERNAL_REGISTER_LOCAL_DEVICE_FACTORY(device_type, device_factory, \
+                                               ctr, ...)                    \
+  static ::tensorflow::dfactory::Registrar<device_factory>                  \
+      INTERNAL_REGISTER_LOCAL_DEVICE_FACTORY_NAME(ctr)(device_type,         \
+                                                       ##__VA_ARGS__)
+
+#define INTERNAL_REGISTER_LOCAL_DEVICE_FACTORY_NAME(ctr) ___##ctr##__object_
+```
+
+#### Expands to:
+
+```cpp
+static ::tensorflow::dfactory::Registrar<device_factory> UNIQUE_NAME(device_type[, __VA_ARGS__])
+```
+
+#### Uses
+
+* `tensorflow/core/common_runtime/threadpool_device_factory.cc`
+* `tensorflow/core/common_runtime/gpu/gpu_device_factory.cc`
+
 ## `common_runtime/optimization_registry.h`
 
 ## `distributed_runtime/rpc/grpc_serialization_traits.h`
