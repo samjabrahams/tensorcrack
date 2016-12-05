@@ -14,7 +14,6 @@ declare -a regexp=(
                    "VARIABLES","GLOBAL_VARIABLES"
                    "initialize_all_variables","global_variable_initializer"
                    "batch_matrix_diag","matrix_diag"
-                   "batch_matrix_diag_parg", "matrix_diag_part"
                    "batch_band_part","band_part"
                    "batch_set_diag","set_diag"
                    "batch_matrix_transpose","matrix_transpose"
