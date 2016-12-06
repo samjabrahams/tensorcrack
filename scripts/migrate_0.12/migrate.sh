@@ -12,7 +12,7 @@ declare -a regexp=(
                    "image\.per_image_whitening","image\.per_image_standardization"
                    "all_variables","global_variables"
                    "VARIABLES","GLOBAL_VARIABLES"
-                   "initialize_all_variables","global_variable_initializer"
+                   "initialize_all_variables","global_variables_initializer"
                    "batch_matrix_diag","matrix_diag"
                    "batch_band_part","band_part"
                    "batch_set_diag","set_diag"
